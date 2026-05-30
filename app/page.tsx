@@ -2,21 +2,21 @@
 
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
-import { useState } from 'react';
+import { useState, FormEvent } from 'react';
 import { ArrowRight, CheckCircle, Shield, Users, Zap, Search, TrendingUp, Sparkles } from 'lucide-react';
 
 export default function HomePage() {
   const router = useRouter();
-  const [searchQuery, setSearchQuery] = useState('');
+  const [searchQuery, setSearchQuery] = useState<string>('');
 
-  const handleSearch = (e) => {
+  const handleSearch = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     if (searchQuery.trim()) {
       router.push(`/manufacturers?search=${encodeURIComponent(searchQuery)}`);
     }
   };
 
-  const handleCategoryClick = (category) => {
+  const handleCategoryClick = (category: string) => {
     router.push(`/manufacturers?category=${encodeURIComponent(category)}`);
   };
 
