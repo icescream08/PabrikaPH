@@ -1,7 +1,25 @@
+'use client';
+
 import Link from 'next/link';
+import { useRouter } from 'next/navigation';
+import { useState } from 'react';
 import { ArrowRight, CheckCircle, Shield, Users, Zap, Search, TrendingUp, Sparkles } from 'lucide-react';
 
 export default function HomePage() {
+  const router = useRouter();
+  const [searchQuery, setSearchQuery] = useState('');
+
+  const handleSearch = (e) => {
+    e.preventDefault();
+    if (searchQuery.trim()) {
+      router.push(`/manufacturers?search=${encodeURIComponent(searchQuery)}`);
+    }
+  };
+
+  const handleCategoryClick = (category) => {
+    router.push(`/manufacturers?category=${encodeURIComponent(category)}`);
+  };
+
   return (
     <div className="min-h-screen bg-white">
       {/* Premium Navigation */}
@@ -15,7 +33,7 @@ export default function HomePage() {
             <Link href="/manufacturers" className="text-gray-600 hover:text-pabrika-navy font-medium transition-colors duration-200">
               Browse Suppliers
             </Link>
-            <a href="#how" className="text-gray-600 hover:text-pabrika-navy font-medium transition-colors duration-200">
+            <a href="#how" className="text-gray-600 hover:text-pabrika-navy font-medium transition-colors duration-200 cursor-pointer">
               How it Works
             </a>
             <Link href="#" className="text-gray-600 hover:text-pabrika-navy font-medium transition-colors duration-200">
@@ -58,13 +76,15 @@ export default function HomePage() {
 
           {/* Premium Search Bar */}
           <div className="max-w-3xl mb-12">
-            <form className="flex flex-col sm:flex-row gap-3 mb-8">
+            <form onSubmit={handleSearch} className="flex flex-col sm:flex-row gap-3 mb-8">
               <div className="flex-1 relative group">
                 <div className="absolute inset-0 bg-gradient-to-r from-orange-400 to-pink-600 rounded-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300 blur-xl -z-10"></div>
                 <div className="relative flex items-center bg-white rounded-xl overflow-hidden">
                   <Search className="absolute left-4 text-gray-400 w-5 h-5" />
                   <input
                     type="text"
+                    value={searchQuery}
+                    onChange={(e) => setSearchQuery(e.target.value)}
                     placeholder="Search: cosmetics, packaging, apparel, food, supplements..."
                     className="w-full pl-12 pr-6 py-4 text-gray-900 font-medium placeholder-gray-500 focus:outline-none bg-transparent"
                   />
@@ -85,7 +105,8 @@ export default function HomePage() {
               {['Beauty & Cosmetics', 'Food & Beverage', 'Packaging', 'Apparel'].map((cat) => (
                 <button
                   key={cat}
-                  className="bg-white bg-opacity-10 hover:bg-opacity-20 backdrop-blur text-white px-5 py-2.5 rounded-full text-sm font-medium transition-all duration-200 border border-white border-opacity-20 hover:border-opacity-40 transform hover:scale-105"
+                  onClick={() => handleCategoryClick(cat)}
+                  className="bg-white bg-opacity-10 hover:bg-opacity-20 backdrop-blur text-white px-5 py-2.5 rounded-full text-sm font-medium transition-all duration-200 border border-white border-opacity-20 hover:border-opacity-40 transform hover:scale-105 cursor-pointer"
                 >
                   {cat}
                 </button>
@@ -132,7 +153,7 @@ export default function HomePage() {
             ].map((item, i) => {
               const Icon = item.icon;
               return (
-                <div key={i} className="group">
+                <div key={i} className="group cursor-pointer">
                   <div className="bg-white rounded-2xl p-8 shadow-sm hover:shadow-xl transition-all duration-300 border border-gray-100 hover:border-gray-200 transform hover:scale-105 h-full">
                     <div className="bg-blue-50 w-14 h-14 rounded-xl flex items-center justify-center mb-6 group-hover:bg-blue-100 transition-colors">
                       <Icon className="w-7 h-7 text-pabrika-orange" />
@@ -182,8 +203,8 @@ export default function HomePage() {
             ].map((step, i) => {
               const Icon = step.icon;
               return (
-                <div key={i} className="relative">
-                  <div className="bg-gradient-to-br from-blue-50 to-white rounded-2xl p-8 border border-gray-200 hover:border-pabrika-orange hover:shadow-xl transition-all duration-300 h-full">
+                <div key={i} className="relative cursor-pointer">
+                  <div className="bg-gradient-to-br from-blue-50 to-white rounded-2xl p-8 border border-gray-200 hover:border-pabrika-orange hover:shadow-xl transition-all duration-300 h-full transform hover:scale-105">
                     <div className="absolute -top-6 left-8 w-12 h-12 bg-pabrika-orange text-white rounded-xl flex items-center justify-center font-bold text-lg">
                       {step.num}
                     </div>
@@ -213,7 +234,7 @@ export default function HomePage() {
               </p>
               <Link
                 href="/manufacturers"
-                className="inline-flex items-center gap-3 bg-pabrika-orange hover:bg-orange-600 text-white px-8 py-4 rounded-xl font-bold transition-all duration-200 hover:shadow-lg hover:shadow-orange-300 transform hover:scale-105"
+                className="inline-flex items-center gap-3 bg-pabrika-orange hover:bg-orange-600 text-white px-8 py-4 rounded-xl font-bold transition-all duration-200 hover:shadow-lg hover:shadow-orange-300 transform hover:scale-105 cursor-pointer"
               >
                 Start Sourcing Now
                 <ArrowRight className="w-5 h-5" />
@@ -225,7 +246,10 @@ export default function HomePage() {
               <p className="text-blue-100 text-lg mb-8 leading-relaxed">
                 Get verified and connect with hundreds of potential clients looking for your products.
               </p>
-              <button className="inline-flex items-center gap-3 bg-white hover:bg-blue-50 text-pabrika-navy px-8 py-4 rounded-xl font-bold transition-all duration-200 transform hover:scale-105">
+              <button 
+                onClick={() => alert('Manufacturer signup coming soon!')}
+                className="inline-flex items-center gap-3 bg-white hover:bg-blue-50 text-pabrika-navy px-8 py-4 rounded-xl font-bold transition-all duration-200 transform hover:scale-105 cursor-pointer"
+              >
                 List Your Company
                 <ArrowRight className="w-5 h-5" />
               </button>
@@ -269,26 +293,26 @@ export default function HomePage() {
             <div>
               <h4 className="text-white font-bold mb-6">Browse</h4>
               <ul className="space-y-3 text-sm">
-                <li><Link href="/manufacturers" className="hover:text-pabrika-orange transition-colors">All Suppliers</Link></li>
-                <li><Link href="#" className="hover:text-pabrika-orange transition-colors">By Category</Link></li>
-                <li><Link href="#" className="hover:text-pabrika-orange transition-colors">By Location</Link></li>
+                <li><Link href="/manufacturers" className="hover:text-pabrika-orange transition-colors cursor-pointer">All Suppliers</Link></li>
+                <li><button onClick={() => handleCategoryClick('Beauty & Cosmetics')} className="hover:text-pabrika-orange transition-colors cursor-pointer">By Category</button></li>
+                <li><Link href="#" className="hover:text-pabrika-orange transition-colors cursor-pointer">By Location</Link></li>
               </ul>
             </div>
 
             <div>
               <h4 className="text-white font-bold mb-6">Company</h4>
               <ul className="space-y-3 text-sm">
-                <li><Link href="#" className="hover:text-pabrika-orange transition-colors">About Us</Link></li>
-                <li><Link href="#" className="hover:text-pabrika-orange transition-colors">Blog</Link></li>
-                <li><Link href="#" className="hover:text-pabrika-orange transition-colors">Contact</Link></li>
+                <li><Link href="#" className="hover:text-pabrika-orange transition-colors cursor-pointer">About Us</Link></li>
+                <li><Link href="#" className="hover:text-pabrika-orange transition-colors cursor-pointer">Blog</Link></li>
+                <li><Link href="#" className="hover:text-pabrika-orange transition-colors cursor-pointer">Contact</Link></li>
               </ul>
             </div>
 
             <div>
               <h4 className="text-white font-bold mb-6">Legal</h4>
               <ul className="space-y-3 text-sm">
-                <li><Link href="#" className="hover:text-pabrika-orange transition-colors">Terms of Service</Link></li>
-                <li><Link href="#" className="hover:text-pabrika-orange transition-colors">Privacy Policy</Link></li>
+                <li><Link href="#" className="hover:text-pabrika-orange transition-colors cursor-pointer">Terms of Service</Link></li>
+                <li><Link href="#" className="hover:text-pabrika-orange transition-colors cursor-pointer">Privacy Policy</Link></li>
               </ul>
             </div>
           </div>
