@@ -52,17 +52,75 @@ export default function HomePage() {
         </div>
       </nav>
 
-      {/* Premium Hero Section - Clean Background */}
-      <section className="bg-gradient-to-br from-pabrika-navy via-blue-900 to-blue-800 text-white py-24 md:py-32 relative overflow-hidden">
-        {/* Subtle animated gradient orbs */}
-        <div className="absolute top-10 right-10 w-64 h-64 bg-blue-400 rounded-full mix-blend-multiply filter blur-3xl opacity-5 animate-pulse"></div>
-        <div className="absolute bottom-0 left-1/4 w-80 h-80 bg-blue-300 rounded-full mix-blend-multiply filter blur-3xl opacity-5 animate-pulse" style={{animationDelay: '2s'}}></div>
-        
+      {/* Manufacturing Hero Section with Images */}
+      <section className="relative bg-gradient-to-br from-pabrika-navy via-blue-900 to-blue-800 text-white py-24 md:py-32 overflow-hidden">
+        {/* Manufacturing Background Pattern */}
+        <svg className="absolute inset-0 w-full h-full opacity-10" preserveAspectRatio="xMidYMid slice">
+          {/* Factory building silhouettes */}
+          <g fill="white" opacity="0.15">
+            {/* Factory 1 */}
+            <rect x="5%" y="40%" width="12%" height="50%" fill="white" opacity="0.1"/>
+            <polygon points="5%,40% 11%,20% 17%,40%" fill="white" opacity="0.12"/>
+            <rect x="7%" y="35%" width="2%" height="10%" fill="white" opacity="0.2"/>
+            <rect x="13%" y="35%" width="2%" height="10%" fill="white" opacity="0.2"/>
+            
+            {/* Factory 2 */}
+            <rect x="75%" y="35%" width="15%" height="55%" fill="white" opacity="0.1"/>
+            <polygon points="75%,35% 82.5%,15% 90%,35%" fill="white" opacity="0.12"/>
+            <rect x="77%" y="30%" width="2.5%" height="12%" fill="white" opacity="0.2"/>
+            <rect x="85%" y="30%" width="2.5%" height="12%" fill="white" opacity="0.2"/>
+            <rect x="87%" y="28%" width="2%" height="14%" fill="white" opacity="0.2"/>
+            
+            {/* Factory 3 */}
+            <rect x="40%" y="45%" width="10%" height="45%" fill="white" opacity="0.1"/>
+            <polygon points="40%,45% 45%,30% 50%,45%" fill="white" opacity="0.12"/>
+            <rect x="42%" y="40%" width="1.5%" height="8%" fill="white" opacity="0.2"/>
+            <rect x="48%" y="40%" width="1.5%" height="8%" fill="white" opacity="0.2"/>
+          </g>
+
+          {/* Workers and activity silhouettes */}
+          <g fill="white" opacity="0.12">
+            {/* Worker 1 - standing with tool */}
+            <circle cx="20%" cy="75%" r="2.5"/>
+            <rect x="19.5%" y="77.5%" width="1%" height="8%" fill="white" opacity="0.12"/>
+            <rect x="18%" y="78%" width="3%" height="1.5%" fill="white" opacity="0.12"/>
+            <rect x="19.3%" y="85%" width="0.7%" height="4%" fill="white" opacity="0.12"/>
+            <rect x="20%" y="85%" width="0.7%" height="4%" fill="white" opacity="0.12"/>
+
+            {/* Worker 2 - operating machinery */}
+            <circle cx="55%" cy="80%" r="2.5"/>
+            <rect x="54.5%" y="82.5%" width="1%" height="7%" fill="white" opacity="0.12"/>
+            <rect x="54%" y="83%" width="2%" height="1%" fill="white" opacity="0.12"/>
+            <rect x="54.3%" y="89%" width="0.7%" height="3.5%" fill="white" opacity="0.12"/>
+            <rect x="55%" y="89%" width="0.7%" height="3.5%" fill="white" opacity="0.12"/>
+
+            {/* Worker 3 - with clipboard/materials */}
+            <circle cx="85%" cy="78%" r="2.5"/>
+            <rect x="84.5%" y="80.5%" width="1%" height="8%" fill="white" opacity="0.12"/>
+            <rect x="83.8%" y="81.5%" width="2.4%" height="1.2%" fill="white" opacity="0.12"/>
+            <rect x="84.3%" y="88%" width="0.7%" height="4%" fill="white" opacity="0.12"/>
+            <rect x="85%" y="88%" width="0.7%" height="4%" fill="white" opacity="0.12"/>
+
+            {/* Industrial equipment */}
+            <rect x="15%" y="70%" width="3%" height="15%" fill="white" opacity="0.1"/>
+            <rect x="18%" y="68%" width="2%" height="17%" fill="white" opacity="0.1"/>
+            <rect x="60%" y="65%" width="2.5%" height="20%" fill="white" opacity="0.1"/>
+            <rect x="63%" y="67%" width="2%" height="18%" fill="white" opacity="0.1"/>
+          </g>
+        </svg>
+
+        {/* Gradient Overlay for Text Readability */}
+        <div className="absolute inset-0 bg-gradient-to-r from-pabrika-navy/90 via-blue-900/75 to-blue-800/90"></div>
+
+        {/* Animated accent elements */}
+        <div className="absolute top-20 right-5 w-40 h-40 bg-pabrika-orange rounded-full mix-blend-multiply filter blur-3xl opacity-5 animate-pulse"></div>
+        <div className="absolute bottom-10 left-1/4 w-60 h-60 bg-blue-300 rounded-full mix-blend-multiply filter blur-3xl opacity-5 animate-pulse" style={{animationDelay: '2s'}}></div>
+
         <div className="container-max relative z-10">
           <div className="max-w-3xl mb-12">
             <div className="inline-block mb-6">
               <span className="bg-white bg-opacity-10 backdrop-blur text-blue-100 px-4 py-2 rounded-full text-sm font-semibold border border-white border-opacity-20 hover:bg-opacity-15 transition-all">
-                ✨ Trusted by 2,000+ Filipino Businesses
+                ✨ Connecting Businesses with Manufacturing Excellence
               </span>
             </div>
             
