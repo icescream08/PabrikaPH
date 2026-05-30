@@ -52,20 +52,21 @@ export default function HomePage() {
         </div>
       </nav>
 
-      {/* Premium Hero Section */}
+      {/* Premium Hero Section - Clean Background */}
       <section className="bg-gradient-to-br from-pabrika-navy via-blue-900 to-blue-800 text-white py-24 md:py-32 relative overflow-hidden">
-        {/* Decorative elements */}
-        <div className="absolute top-0 right-0 w-96 h-96 bg-blue-400 rounded-full mix-blend-multiply filter blur-3xl opacity-10 animate-pulse"></div>
+        {/* Subtle animated gradient orbs */}
+        <div className="absolute top-10 right-10 w-64 h-64 bg-blue-400 rounded-full mix-blend-multiply filter blur-3xl opacity-5 animate-pulse"></div>
+        <div className="absolute bottom-0 left-1/4 w-80 h-80 bg-blue-300 rounded-full mix-blend-multiply filter blur-3xl opacity-5 animate-pulse" style={{animationDelay: '2s'}}></div>
         
         <div className="container-max relative z-10">
           <div className="max-w-3xl mb-12">
             <div className="inline-block mb-6">
-              <span className="bg-white bg-opacity-10 backdrop-blur text-blue-100 px-4 py-2 rounded-full text-sm font-semibold border border-white border-opacity-20">
+              <span className="bg-white bg-opacity-10 backdrop-blur text-blue-100 px-4 py-2 rounded-full text-sm font-semibold border border-white border-opacity-20 hover:bg-opacity-15 transition-all">
                 ✨ Trusted by 2,000+ Filipino Businesses
               </span>
             </div>
             
-            <h1 className="text-5xl md:text-7xl font-bold mb-8 font-poppins leading-tight">
+            <h1 className="text-5xl md:text-6xl font-bold mb-8 font-poppins leading-tight">
               Hanapin ang Supplier Na Kailangan Mo
             </h1>
             
@@ -78,35 +79,35 @@ export default function HomePage() {
           <div className="max-w-3xl mb-12">
             <form onSubmit={handleSearch} className="flex flex-col sm:flex-row gap-3 mb-8">
               <div className="flex-1 relative group">
-                <div className="absolute inset-0 bg-gradient-to-r from-orange-400 to-pink-600 rounded-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300 blur-xl -z-10"></div>
-                <div className="relative flex items-center bg-white rounded-xl overflow-hidden">
+                <div className="absolute inset-0 bg-gradient-to-r from-orange-400 to-orange-300 rounded-xl opacity-0 group-hover:opacity-20 transition-opacity duration-300 blur-lg -z-10"></div>
+                <div className="relative flex items-center bg-white rounded-xl overflow-hidden shadow-lg hover:shadow-2xl transition-shadow">
                   <Search className="absolute left-4 text-gray-400 w-5 h-5" />
                   <input
                     type="text"
                     value={searchQuery}
                     onChange={(e) => setSearchQuery(e.target.value)}
                     placeholder="Search: cosmetics, packaging, apparel, food, supplements..."
-                    className="w-full pl-12 pr-6 py-4 text-gray-900 font-medium placeholder-gray-500 focus:outline-none bg-transparent"
+                    className="w-full pl-12 pr-6 py-4 text-gray-900 font-medium placeholder-gray-400 focus:outline-none bg-transparent"
                   />
                 </div>
               </div>
               <button
                 type="submit"
-                className="bg-gradient-to-r from-pabrika-orange to-orange-600 hover:shadow-2xl hover:shadow-orange-400 text-white px-8 py-4 rounded-xl font-bold transition-all duration-300 whitespace-nowrap flex items-center justify-center gap-2 group transform hover:scale-105"
+                className="bg-gradient-to-r from-pabrika-orange to-orange-600 hover:shadow-2xl hover:shadow-orange-300 text-white px-8 py-4 rounded-xl font-bold transition-all duration-300 whitespace-nowrap flex items-center justify-center gap-2 group transform hover:scale-105"
               >
                 Search
                 <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
               </button>
             </form>
 
-            {/* Quick Categories - Premium */}
+            {/* Quick Categories */}
             <div className="flex flex-wrap gap-3">
-              <span className="text-blue-200 text-sm font-semibold">Popular categories:</span>
+              <span className="text-blue-100 text-sm font-semibold">Popular categories:</span>
               {['Beauty & Cosmetics', 'Food & Beverage', 'Packaging', 'Apparel'].map((cat) => (
                 <button
                   key={cat}
                   onClick={() => handleCategoryClick(cat)}
-                  className="bg-white bg-opacity-10 hover:bg-opacity-20 backdrop-blur text-white px-5 py-2.5 rounded-full text-sm font-medium transition-all duration-200 border border-white border-opacity-20 hover:border-opacity-40 transform hover:scale-105 cursor-pointer"
+                  className="bg-white bg-opacity-15 hover:bg-opacity-25 backdrop-blur text-white px-5 py-2.5 rounded-full text-sm font-medium transition-all duration-200 border border-white border-opacity-30 hover:border-opacity-50 transform hover:scale-105 cursor-pointer"
                 >
                   {cat}
                 </button>
@@ -116,7 +117,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* Trust Section - Premium */}
+      {/* Trust Section */}
       <section className="bg-gradient-to-b from-white to-gray-50 py-20">
         <div className="container-max">
           <div className="text-center mb-16">
@@ -154,8 +155,8 @@ export default function HomePage() {
               const Icon = item.icon;
               return (
                 <div key={i} className="group cursor-pointer">
-                  <div className="bg-white rounded-2xl p-8 shadow-sm hover:shadow-xl transition-all duration-300 border border-gray-100 hover:border-gray-200 transform hover:scale-105 h-full">
-                    <div className="bg-blue-50 w-14 h-14 rounded-xl flex items-center justify-center mb-6 group-hover:bg-blue-100 transition-colors">
+                  <div className="bg-white rounded-2xl p-8 shadow-sm hover:shadow-xl transition-all duration-300 border border-gray-100 hover:border-pabrika-orange h-full">
+                    <div className="bg-blue-50 w-14 h-14 rounded-xl flex items-center justify-center mb-6 group-hover:bg-orange-50 transition-colors">
                       <Icon className="w-7 h-7 text-pabrika-orange" />
                     </div>
                     <h3 className="font-bold text-lg mb-3 text-gray-900 group-hover:text-pabrika-navy transition-colors">{item.title}</h3>
@@ -168,7 +169,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* How It Works - Premium */}
+      {/* How It Works */}
       <section id="how" className="bg-white py-20">
         <div className="container-max">
           <div className="text-center mb-16">
@@ -180,7 +181,7 @@ export default function HomePage() {
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 relative">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {[
               {
                 num: '1',
@@ -204,8 +205,8 @@ export default function HomePage() {
               const Icon = step.icon;
               return (
                 <div key={i} className="relative cursor-pointer">
-                  <div className="bg-gradient-to-br from-blue-50 to-white rounded-2xl p-8 border border-gray-200 hover:border-pabrika-orange hover:shadow-xl transition-all duration-300 h-full transform hover:scale-105">
-                    <div className="absolute -top-6 left-8 w-12 h-12 bg-pabrika-orange text-white rounded-xl flex items-center justify-center font-bold text-lg">
+                  <div className="bg-gradient-to-br from-blue-50 to-white rounded-2xl p-8 border border-gray-200 hover:border-pabrika-orange hover:shadow-lg transition-all duration-300 h-full">
+                    <div className="absolute -top-6 left-8 w-12 h-12 bg-pabrika-orange text-white rounded-xl flex items-center justify-center font-bold text-lg shadow-md">
                       {step.num}
                     </div>
                     <div className="pt-6">
@@ -223,7 +224,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* CTA Section - Premium */}
+      {/* CTA Section */}
       <section className="bg-gradient-to-r from-pabrika-navy to-blue-900 text-white py-20">
         <div className="container-max">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
@@ -234,7 +235,7 @@ export default function HomePage() {
               </p>
               <Link
                 href="/manufacturers"
-                className="inline-flex items-center gap-3 bg-pabrika-orange hover:bg-orange-600 text-white px-8 py-4 rounded-xl font-bold transition-all duration-200 hover:shadow-lg hover:shadow-orange-300 transform hover:scale-105 cursor-pointer"
+                className="inline-flex items-center gap-3 bg-pabrika-orange hover:bg-orange-600 text-white px-8 py-4 rounded-xl font-bold transition-all duration-200 hover:shadow-lg hover:shadow-orange-300 cursor-pointer"
               >
                 Start Sourcing Now
                 <ArrowRight className="w-5 h-5" />
@@ -248,7 +249,7 @@ export default function HomePage() {
               </p>
               <button 
                 onClick={() => alert('Manufacturer signup coming soon!')}
-                className="inline-flex items-center gap-3 bg-white hover:bg-blue-50 text-pabrika-navy px-8 py-4 rounded-xl font-bold transition-all duration-200 transform hover:scale-105 cursor-pointer"
+                className="inline-flex items-center gap-3 bg-white hover:bg-blue-50 text-pabrika-navy px-8 py-4 rounded-xl font-bold transition-all duration-200 cursor-pointer"
               >
                 List Your Company
                 <ArrowRight className="w-5 h-5" />
