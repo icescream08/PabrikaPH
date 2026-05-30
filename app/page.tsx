@@ -52,65 +52,150 @@ export default function HomePage() {
         </div>
       </nav>
 
-      {/* Manufacturing Hero Section with Images */}
+      {/* Manufacturing Hero Section with Detailed Workers */}
       <section className="relative bg-gradient-to-br from-pabrika-navy via-blue-900 to-blue-800 text-white py-24 md:py-32 overflow-hidden">
-        {/* Manufacturing Background Pattern */}
-        <svg className="absolute inset-0 w-full h-full opacity-10" preserveAspectRatio="xMidYMid slice">
-          {/* Factory building silhouettes */}
-          <g fill="white" opacity="0.15">
-            {/* Factory 1 */}
-            <rect x="5%" y="40%" width="12%" height="50%" fill="white" opacity="0.1"/>
-            <polygon points="5%,40% 11%,20% 17%,40%" fill="white" opacity="0.12"/>
-            <rect x="7%" y="35%" width="2%" height="10%" fill="white" opacity="0.2"/>
-            <rect x="13%" y="35%" width="2%" height="10%" fill="white" opacity="0.2"/>
-            
-            {/* Factory 2 */}
-            <rect x="75%" y="35%" width="15%" height="55%" fill="white" opacity="0.1"/>
-            <polygon points="75%,35% 82.5%,15% 90%,35%" fill="white" opacity="0.12"/>
-            <rect x="77%" y="30%" width="2.5%" height="12%" fill="white" opacity="0.2"/>
-            <rect x="85%" y="30%" width="2.5%" height="12%" fill="white" opacity="0.2"/>
-            <rect x="87%" y="28%" width="2%" height="14%" fill="white" opacity="0.2"/>
-            
-            {/* Factory 3 */}
-            <rect x="40%" y="45%" width="10%" height="45%" fill="white" opacity="0.1"/>
-            <polygon points="40%,45% 45%,30% 50%,45%" fill="white" opacity="0.12"/>
-            <rect x="42%" y="40%" width="1.5%" height="8%" fill="white" opacity="0.2"/>
-            <rect x="48%" y="40%" width="1.5%" height="8%" fill="white" opacity="0.2"/>
+        {/* Detailed Manufacturing Workers SVG */}
+        <svg className="absolute inset-0 w-full h-full opacity-25" preserveAspectRatio="xMidYMid slice" viewBox="0 0 1200 600">
+          <defs>
+            <linearGradient id="workerSkin" x1="0%" y1="0%" x2="0%" y2="100%">
+              <stop offset="0%" style={{stopColor: '#E8B5A0', stopOpacity: 0.8}} />
+              <stop offset="100%" style={{stopColor: '#D4956E', stopOpacity: 0.8}} />
+            </linearGradient>
+            <linearGradient id="workerSkinAlt" x1="0%" y1="0%" x2="0%" y2="100%">
+              <stop offset="0%" style={{stopColor: '#F4C4A8', stopOpacity: 0.8}} />
+              <stop offset="100%" style={{stopColor: '#E69873', stopOpacity: 0.8}} />
+            </linearGradient>
+            <linearGradient id="workerSkinDark" x1="0%" y1="0%" x2="0%" y2="100%">
+              <stop offset="0%" style={{stopColor: '#C9956B', stopOpacity: 0.8}} />
+              <stop offset="100%" style={{stopColor: '#A87449', stopOpacity: 0.8}} />
+            </linearGradient>
+          </defs>
+
+          {/* Factory Building */}
+          <g opacity="0.3">
+            <rect x="50" y="250" width="180" height="300" fill="#4A5568" opacity="0.4"/>
+            <polygon points="50,250 140,120 230,250" fill="#6B7280" opacity="0.4"/>
+            <rect x="75" y="280" width="25" height="30" fill="#87CEEB" opacity="0.5"/>
+            <rect x="120" y="280" width="25" height="30" fill="#87CEEB" opacity="0.5"/>
+            <rect x="165" y="280" width="25" height="30" fill="#87CEEB" opacity="0.5"/>
+            <rect x="75" y="330" width="25" height="30" fill="#87CEEB" opacity="0.5"/>
+            <rect x="120" y="330" width="25" height="30" fill="#87CEEB" opacity="0.5"/>
+            <rect x="165" y="330" width="25" height="30" fill="#87CEEB" opacity="0.5"/>
+            {/* Smokestack */}
+            <rect x="105" y="100" width="30" height="150" fill="#5A6B7F" opacity="0.5"/>
           </g>
 
-          {/* Workers and activity silhouettes */}
-          <g fill="white" opacity="0.12">
-            {/* Worker 1 - standing with tool */}
-            <circle cx="20%" cy="75%" r="2.5"/>
-            <rect x="19.5%" y="77.5%" width="1%" height="8%" fill="white" opacity="0.12"/>
-            <rect x="18%" y="78%" width="3%" height="1.5%" fill="white" opacity="0.12"/>
-            <rect x="19.3%" y="85%" width="0.7%" height="4%" fill="white" opacity="0.12"/>
-            <rect x="20%" y="85%" width="0.7%" height="4%" fill="white" opacity="0.12"/>
+          {/* WORKER 1 - Operating Machine (Left side) */}
+          <g>
+            {/* Head */}
+            <circle cx="180" cy="380" r="20" fill="url(#workerSkin)"/>
+            {/* Hair */}
+            <path d="M 160 380 Q 180 360 200 380" fill="#3D2817" opacity="0.7"/>
+            {/* Body */}
+            <rect x="170" y="405" width="20" height="45" fill="#FF6B35" opacity="0.9"/>
+            {/* Arms - operating machine */}
+            <rect x="130" y="415" width="40" height="12" fill="url(#workerSkin)" transform="rotate(-25 150 421)"/>
+            <rect x="190" y="415" width="40" height="12" fill="url(#workerSkin)" transform="rotate(25 210 421)"/>
+            {/* Legs */}
+            <rect x="175" y="450" width="8" height="35" fill="#2C3E50"/>
+            <rect x="187" y="450" width="8" height="35" fill="#2C3E50"/>
+            {/* Shoes */}
+            <ellipse cx="179" cy="490" rx="6" ry="5" fill="#1A1A1A"/>
+            <ellipse cx="191" cy="490" rx="6" ry="5" fill="#1A1A1A"/>
+            {/* Machine being operated */}
+            <rect x="240" y="380" width="80" height="90" fill="#5A6B7F" opacity="0.6" rx="5"/>
+            <circle cx="250" cy="415" r="15" fill="#D4AF37" opacity="0.7"/>
+            <rect x="270" y="400" width="35" height="8" fill="#4A5568" opacity="0.6"/>
+          </g>
 
-            {/* Worker 2 - operating machinery */}
-            <circle cx="55%" cy="80%" r="2.5"/>
-            <rect x="54.5%" y="82.5%" width="1%" height="7%" fill="white" opacity="0.12"/>
-            <rect x="54%" y="83%" width="2%" height="1%" fill="white" opacity="0.12"/>
-            <rect x="54.3%" y="89%" width="0.7%" height="3.5%" fill="white" opacity="0.12"/>
-            <rect x="55%" y="89%" width="0.7%" height="3.5%" fill="white" opacity="0.12"/>
+          {/* WORKER 2 - Checking/Inspecting (Center) */}
+          <g>
+            {/* Head */}
+            <circle cx="520" cy="400" r="22" fill="url(#workerSkinAlt)"/>
+            {/* Hair */}
+            <path d="M 498 400 Q 520 375 542 400" fill="#2C1810" opacity="0.7"/>
+            {/* Hard hat */}
+            <ellipse cx="520" cy="375" rx="25" ry="8" fill="#FFA500" opacity="0.8"/>
+            {/* Goggles */}
+            <circle cx="510" cy="397" r="4" fill="#4A90E2" opacity="0.6"/>
+            <circle cx="530" cy="397" r="4" fill="#4A90E2" opacity="0.6"/>
+            <line x1="514" y1="397" x2="526" y2="397" stroke="#4A4E69" strokeWidth="1" opacity="0.6"/>
+            {/* Body */}
+            <rect x="508" y="428" width="24" height="50" fill="#4169E1" opacity="0.9"/>
+            {/* Arms - holding clipboard/inspecting */}
+            <rect x="470" y="435" width="38" height="11" fill="url(#workerSkinAlt)" transform="rotate(-20 489 440)"/>
+            <rect x="532" y="435" width="38" height="11" fill="url(#workerSkinAlt)" transform="rotate(10 551 440)"/>
+            {/* Clipboard */}
+            <rect x="555" y="420" width="28" height="35" fill="#8B7355" opacity="0.7"/>
+            <rect x="557" y="423" width="24" height="10" fill="#FFFACD" opacity="0.7"/>
+            <rect x="557" y="435" width="24" height="2" fill="#4A4E69" opacity="0.5"/>
+            <rect x="557" y="440" width="24" height="2" fill="#4A4E69" opacity="0.5"/>
+            {/* Legs */}
+            <rect x="513" y="478" width="9" height="40" fill="#2C3E50"/>
+            <rect x="527" y="478" width="9" height="40" fill="#2C3E50"/>
+            {/* Shoes */}
+            <ellipse cx="517.5" cy="523" rx="7" ry="5" fill="#1A1A1A"/>
+            <ellipse cx="531.5" cy="523" rx="7" ry="5" fill="#1A1A1A"/>
+            {/* Production area */}
+            <rect x="440" y="420" width="70" height="60" fill="#6B8E99" opacity="0.5" rx="3"/>
+            <rect x="450" y="430" width="15" height="15" fill="#87CEEB" opacity="0.4"/>
+            <rect x="475" y="430" width="15" height="15" fill="#87CEEB" opacity="0.4"/>
+            <rect x="500" y="430" width="15" height="15" fill="#87CEEB" opacity="0.4"/>
+          </g>
 
-            {/* Worker 3 - with clipboard/materials */}
-            <circle cx="85%" cy="78%" r="2.5"/>
-            <rect x="84.5%" y="80.5%" width="1%" height="8%" fill="white" opacity="0.12"/>
-            <rect x="83.8%" y="81.5%" width="2.4%" height="1.2%" fill="white" opacity="0.12"/>
-            <rect x="84.3%" y="88%" width="0.7%" height="4%" fill="white" opacity="0.12"/>
-            <rect x="85%" y="88%" width="0.7%" height="4%" fill="white" opacity="0.12"/>
+          {/* WORKER 3 - Assembling/Building (Right side) */}
+          <g>
+            {/* Head */}
+            <circle cx="880" cy="390" r="21" fill="url(#workerSkinDark)"/>
+            {/* Hair */}
+            <path d="M 859 390 Q 880 368 901 390" fill="#1A0F0A" opacity="0.8"/>
+            {/* Safety vest */}
+            <polygon points="859,418 901,418 905,465 855,465" fill="#FFD700" opacity="0.7"/>
+            {/* Body under vest */}
+            <rect x="864" y="420" width="32" height="45" fill="#FFFFFF" opacity="0.8"/>
+            {/* Arms - assembling */}
+            <rect x="820" y="430" width="39" height="10" fill="url(#workerSkinDark)" transform="rotate(-15 839.5 435)"/>
+            <rect x="901" y="430" width="42" height="10" fill="url(#workerSkinDark)" transform="rotate(20 922 435)"/>
+            {/* Tools in hand */}
+            <rect x="810" y="433" width="12" height="20" fill="#8B4513" opacity="0.7"/>
+            <circle cx="855" cy="438" r="3" fill="#FFD700" opacity="0.8"/>
+            {/* Legs */}
+            <rect x="873" y="465" width="9" height="38" fill="#2C3E50"/>
+            <rect x="888" y="465" width="9" height="38" fill="#2C3E50"/>
+            {/* Shoes */}
+            <ellipse cx="877.5" cy="508" rx="7" ry="5" fill="#1A1A1A"/>
+            <ellipse cx="892.5" cy="508" rx="7" ry="5" fill="#1A1A1A"/>
+            {/* Workbench */}
+            <rect x="800" y="500" width="140" height="20" fill="#8B7355" opacity="0.5"/>
+            <rect x="820" y="485" width="100" height="15" fill="#D2B48C" opacity="0.4"/>
+            <circle cx="835" cy="492" r="4" fill="#C0C0C0" opacity="0.5"/>
+            <circle cx="855" cy="492" r="4" fill="#C0C0C0" opacity="0.5"/>
+            <circle cx="875" cy="492" r="4" fill="#C0C0C0" opacity="0.5"/>
+          </g>
 
-            {/* Industrial equipment */}
-            <rect x="15%" y="70%" width="3%" height="15%" fill="white" opacity="0.1"/>
-            <rect x="18%" y="68%" width="2%" height="17%" fill="white" opacity="0.1"/>
-            <rect x="60%" y="65%" width="2.5%" height="20%" fill="white" opacity="0.1"/>
-            <rect x="63%" y="67%" width="2%" height="18%" fill="white" opacity="0.1"/>
+          {/* Large Factory Complex in background */}
+          <g opacity="0.2">
+            <rect x="950" y="200" width="220" height="350" fill="#4A5568"/>
+            <polygon points="950,200 1060,50 1170,200" fill="#6B7280"/>
+            <rect x="970" y="240" width="20" height="25" fill="#87CEEB"/>
+            <rect x="1010" y="240" width="20" height="25" fill="#87CEEB"/>
+            <rect x="1050" y="240" width="20" height="25" fill="#87CEEB"/>
+            <rect x="1090" y="240" width="20" height="25" fill="#87CEEB"/>
+            <rect x="1130" y="240" width="20" height="25" fill="#87CEEB"/>
+            <rect x="970" y="290" width="20" height="25" fill="#87CEEB"/>
+            <rect x="1010" y="290" width="20" height="25" fill="#87CEEB"/>
+            <rect x="1050" y="290" width="20" height="25" fill="#87CEEB"/>
+            <rect x="1090" y="290" width="20" height="25" fill="#87CEEB"/>
+            <rect x="1130" y="290" width="20" height="25" fill="#87CEEB"/>
+            {/* Smokestacks */}
+            <rect x="980" y="120" width="25" height="80" fill="#5A6B7F"/>
+            <rect x="1050" y="100" width="25" height="100" fill="#5A6B7F"/>
+            <rect x="1120" y="140" width="25" height="60" fill="#5A6B7F"/>
           </g>
         </svg>
 
-        {/* Gradient Overlay for Text Readability */}
-        <div className="absolute inset-0 bg-gradient-to-r from-pabrika-navy/90 via-blue-900/75 to-blue-800/90"></div>
+        {/* Professional Gradient Overlay */}
+        <div className="absolute inset-0 bg-gradient-to-r from-pabrika-navy/85 via-blue-900/70 to-blue-800/85"></div>
 
         {/* Animated accent elements */}
         <div className="absolute top-20 right-5 w-40 h-40 bg-pabrika-orange rounded-full mix-blend-multiply filter blur-3xl opacity-5 animate-pulse"></div>
@@ -120,7 +205,7 @@ export default function HomePage() {
           <div className="max-w-3xl mb-12">
             <div className="inline-block mb-6">
               <span className="bg-white bg-opacity-10 backdrop-blur text-blue-100 px-4 py-2 rounded-full text-sm font-semibold border border-white border-opacity-20 hover:bg-opacity-15 transition-all">
-                ✨ Connecting Businesses with Manufacturing Excellence
+                ✨ Connecting Businesses with Real Filipino Manufacturers
               </span>
             </div>
             
